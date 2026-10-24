@@ -1,104 +1,206 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romeo and Juliet</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            margin: 0;
-            padding: 40px;
-        }
-
-        .book {
-            max-width: 540px;
-            margin: 0 auto;
-            background-color: #f4f4f4;
-            padding: 25px 30px;
-            color: #222;
-            line-height: 1.4;
-            font-size: 12px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #4b438b;
-            font-size: 23px;
-            margin-top: 10px;
-            margin-bottom: 15px;
-        }
-
-        h2 {
-            color: #7b91a5;
-            font-size: 12px;
-            margin-top: 18px;
-            margin-bottom: 12px;
-        }
-
-        .speaker {
-            color: #7b91a5;
-            font-weight: bold;
-            margin-top: 18px;
-        }
-
-        .stage {
-            font-style: italic;
-            font-size: 10px;
-            margin-top: 18px;
-        }
-
-        p {
-            margin-top: 10px;
-            margin-bottom: 12px;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Головна — FORMA / OBJECTS</title>
+<style>
+:root{--bg:#f5f5f2;--paper:#fff;--ink:#202522;--muted:#777f79;--line:#e3e5df;--green:#344b42;--soft:#e8eee9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px Arial,sans-serif}
+button,input{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+header{height:72px;position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:24px;padding:0 clamp(18px,4vw,58px);background:#fbfbf9f5;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.logo{font-size:19px;font-weight:800;letter-spacing:2px;white-space:nowrap}.logo span{color:#8b9c90}
+.search{position:relative;flex:1;max-width:600px;margin:auto}.search input{width:100%;height:40px;padding:0 16px 0 40px;border:1px solid transparent;border-radius:24px;background:#f0f1ed}.search input:focus{outline:1px solid #aab9ae;background:#fff}.search:before{content:"⌕";position:absolute;left:14px;top:6px;font-size:24px;color:var(--muted)}
+.actions{display:flex;align-items:center;gap:14px;white-space:nowrap}.lang{border:0;background:transparent;color:var(--green);font-size:12px}
+.cart-open{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:22px;background:#fff}
+.count{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--green);color:#fff;font-size:11px}
+.profile{display:flex;align-items:center;gap:8px;font-size:12px}.avatar{display:grid;place-items:center;width:35px;height:35px;border-radius:50%;background:#e1e6df;color:var(--green);font-weight:bold}.balance{color:var(--green);font-weight:bold}
+.layout{display:grid;grid-template-columns:205px minmax(0,1fr);max-width:1600px;margin:auto;min-height:calc(100vh - 122px)}
+aside{padding:30px 17px;border-right:1px solid var(--line);background:#f0f2ed}
+.side-label{margin:0 0 13px 9px;color:var(--muted);font-size:10px;letter-spacing:1.5px;text-transform:uppercase}
+.categories{display:grid;gap:4px}.category{display:block;padding:11px 10px;border-radius:8px;color:#59625b;font-size:13px}.category:hover{background:var(--soft);color:var(--green)}
+.dot{display:inline-block;width:7px;height:7px;margin-right:10px;border:1px solid #9eaaa1;border-radius:50%}
+.side-note{margin-top:42px;padding:16px;border-radius:11px;background:#e6ebe4}.side-note small{color:var(--muted);font-size:9px;letter-spacing:1.4px;text-transform:uppercase}.side-note h3{font-size:15px;font-weight:500;line-height:1.4}.side-note p{color:var(--muted);font-size:12px;line-height:1.6}
+main{min-width:0;padding:26px clamp(16px,3vw,42px) 42px}
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:255px;overflow:hidden;border-radius:15px;background:#e8e9e4}
+.hero-copy{z-index:1;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:clamp(22px,4vw,48px)}
+.eyebrow{color:#65786b;font-size:10px;font-weight:bold;letter-spacing:2px;text-transform:uppercase}
+.hero h1{margin:14px 0 11px;font-size:clamp(28px,3.2vw,43px);font-weight:500;letter-spacing:-1.4px;line-height:1.08}
+.hero p{max-width:330px;margin:0 0 20px;color:#68706a;font-size:13px;line-height:1.65}
+.hero-image{position:relative;min-height:255px;background:#dedfd9}.hero-image img{position:absolute;width:100%;height:100%;object-fit:cover}
+.hero-image:after{position:absolute;inset:0;content:"";background:linear-gradient(90deg,#e8e9e4,transparent 38%)}
+.primary{display:inline-block;padding:11px 16px;border:0;border-radius:7px;background:var(--green);color:#fff;font-size:11px;letter-spacing:.5px}.primary:hover{background:#25382f}
+.hero-controls{position:absolute;right:14px;bottom:14px;z-index:2;display:flex;gap:7px}.hero-controls button{width:33px;height:33px;border:1px solid #ffffffa6;border-radius:50%;background:#ffffffd0;font-size:18px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:12px;margin:29px 0 13px}
+.section-head h2{margin:0;font-size:20px;font-weight:500}.section-head p{margin:5px 0 0;color:var(--muted);font-size:12px}
+.text-btn{border:0;background:transparent;color:var(--green);font-size:11px;letter-spacing:.4px}
+.row-wrap{position:relative}.product-row{display:flex;gap:13px;overflow:auto;padding:2px 2px 12px;scroll-snap-type:x mandatory;scrollbar-color:#cbd2ca transparent;scrollbar-width:thin}
+.product-row::-webkit-scrollbar{height:5px}.product-row::-webkit-scrollbar-thumb{border-radius:5px;background:#cbd2ca}
+.card{flex:0 0 205px;overflow:hidden;border:1px solid var(--line);border-radius:11px;background:var(--paper);scroll-snap-align:start;transition:.2s}
+.card:hover{transform:translateY(-3px);border-color:#c7cec6}.photo{position:relative;height:155px;overflow:hidden;background:#eeefeb}.photo img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:9px;left:9px;padding:5px 7px;border-radius:5px;background:#f7f8f4e8;color:#526158;font-size:9px;text-transform:uppercase}
+.info{padding:11px}.name{overflow:hidden;margin:0 0 5px;font-size:12px;font-weight:500;text-overflow:ellipsis;white-space:nowrap}
+.meta{margin:0 0 10px;color:var(--muted);font-size:10px}.bottom{display:flex;align-items:center;justify-content:space-between;gap:5px}
+.price{font-size:13px;font-weight:bold;white-space:nowrap}.old{margin-left:3px;color:#a3a8a2;font-size:10px;text-decoration:line-through}
+.add{padding:7px 8px;border:1px solid #d9ded8;border-radius:6px;background:#fff;color:var(--green);font-size:10px;white-space:nowrap}.add:hover{background:var(--green);color:#fff}
+.row-arrows{position:absolute;top:44%;right:-12px;z-index:2;display:flex;gap:5px}.row-arrows button{width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--green);font-size:18px;box-shadow:0 3px 10px #0001}
+.new-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.new-card{display:flex;align-items:center;gap:10px;min-width:0;padding:9px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.new-card img{width:65px;height:65px;flex:none;border-radius:7px;object-fit:cover}
+.new-card div{flex:1;min-width:0}.new-card h3{overflow:hidden;margin:0 0 5px;font-size:12px;font-weight:500;text-overflow:ellipsis;white-space:nowrap}
+.new-card p{margin:0 0 6px;color:var(--muted);font-size:10px}.new-card strong{font-size:12px}
+footer{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding:12px clamp(18px,4vw,58px);border-top:1px solid var(--line);background:#e9ece6;color:#68706a;font-size:11px}
+.overlay{position:fixed;inset:0;z-index:30;display:none;align-items:center;justify-content:center;padding:18px;background:#18211c70}.overlay.open{display:flex}
+.modal{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(220px,.8fr);gap:20px;width:min(900px,100%);max-height:88vh;overflow:auto;padding:20px;border:1px solid #dfe3dc;border-radius:14px;background:#fbfbf9;box-shadow:0 25px 80px #0002}
+.modal-list{min-width:0}.modal-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.modal-head h2{margin:0;font-size:19px;font-weight:500}.close{width:32px;height:32px;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:18px}
+.cart-scroll{max-height:58vh;overflow:auto}.cart-item{display:grid;grid-template-columns:76px minmax(100px,1fr) 85px 25px;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.cart-item img{width:76px;height:70px;border-radius:7px;object-fit:cover}.cart-item h3{margin:0 0 5px;font-size:12px;font-weight:500}.cart-item p{margin:0;color:var(--muted);font-size:10px}
+.qty{display:flex;align-items:center;gap:7px}.qty button{width:23px;height:23px;border:1px solid var(--line);border-radius:5px;background:#fff}.qty strong{font-size:12px}
+.remove{border:0;background:transparent;color:#9a655e;font-size:16px}.summary-card{align-self:center;padding:17px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.summary-card h3{margin:0 0 18px;font-size:15px;font-weight:500}.summary-line{display:flex;justify-content:space-between;gap:10px;margin:10px 0;color:#59625b;font-size:12px}
+.summary-line.total{padding-top:12px;border-top:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:bold}
+.checkout{width:100%;margin-top:8px;padding:11px;border:0;border-radius:7px;background:var(--green);color:#fff;font-size:12px}.checkout:disabled{opacity:.45}
+.empty{padding:28px;text-align:center;color:var(--muted);font-size:13px}.toast{position:fixed;right:20px;bottom:20px;z-index:40;padding:12px 16px;border-radius:8px;background:#263d31;color:white;opacity:0;transition:.2s;pointer-events:none}.toast.show{opacity:1}
+@media(max-width:900px){.layout{grid-template-columns:175px 1fr}.new-grid{grid-template-columns:1fr 1fr}.profile span{display:none}}
+@media(max-width:620px){header{height:62px;gap:9px;padding:0 12px}.logo{font-size:15px}.actions{gap:6px}.profile,.lang{display:none}.cart-open{padding:7px}.layout{display:block}aside{padding:9px 12px;border-right:0;border-bottom:1px solid var(--line)}.side-label{display:none}.categories{display:flex;overflow:auto}.category{flex:none;padding:8px;font-size:11px}aside .side-note{display:none}main{padding:14px 12px 30px}.hero{grid-template-columns:1fr}.hero-copy{grid-row:2;padding:20px}.hero-image{grid-row:1;min-height:190px}.hero-image:after{background:linear-gradient(0deg,#e8e9e4,transparent 35%)}.hero-controls{top:145px;bottom:auto}.section-head{margin-top:24px}.new-grid{grid-template-columns:1fr}.row-arrows{right:-7px}.modal{grid-template-columns:1fr;gap:12px;padding:14px}.summary-card{align-self:auto}.cart-item{grid-template-columns:55px 1fr 70px 20px;gap:8px}.cart-item img{width:55px;height:55px}footer{align-items:flex-start;flex-direction:column}}
+</style>
 </head>
-
 <body>
+<header>
+  <a class="logo" href="index.html">FORMA<span> / OBJECTS</span></a>
+  <form class="search" action="catalog.html"><input name="q" type="search" placeholder="Знайти товар…" aria-label="Знайти товар"></form>
+  <div class="actions">
+    <button class="lang" id="lang">UA | EN</button>
+    <button class="cart-open" id="openCart">Кошик <span class="count" id="cartCount">0</span></button>
+    <div class="profile"><span>John</span><span class="avatar">J</span><span class="balance">₴1250</span></div>
+  </div>
+</header>
 
-    <div class="book">
-        <h1>Romeo and Juliet</h1>
+<div class="layout">
+  <aside>
+    <p class="side-label">Категорії</p>
+    <nav class="categories">
+      <a class="category" href="catalog.html"><span class="dot"></span>Усі товари</a>
+      <a class="category" href="catalog.html?category=Електроніка"><span class="dot"></span>Електроніка</a>
+      <a class="category" href="catalog.html?category=Для%20дому"><span class="dot"></span>Для дому</a>
+      <a class="category" href="catalog.html?category=Аксесуари"><span class="dot"></span>Аксесуари</a>
+    </nav>
+    <div class="side-note"><small>SHOP SALES / ADS</small><h3>Добірка речей для щоденного життя</h3><p>Продуманий дизайн і функціональність для дому, роботи та відпочинку.</p></div>
+  </aside>
 
-        <h2>ACT 1</h2>
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow" id="eyebrow">Добірка сезону · 2026</span>
+        <h1 id="heroTitle">Технології.<br>Тихіше й простіше.</h1>
+        <p id="heroDesc">Продумані речі, стримані форми й технології, що природно вписуються в життя.</p>
+        <a class="primary" href="catalog.html">ДО ПОКУПОК</a>
+      </div>
+      <div class="hero-image">
+        <img id="heroImage" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1100&q=85" alt="Добірка товарів">
+        <div class="hero-controls"><button id="prev" aria-label="Попередній банер">‹</button><button id="next" aria-label="Наступний банер">›</button></div>
+      </div>
+    </section>
 
-        <h2>PROLOGUE</h2>
-
-        <p>
-            Two households, both alike in dignity,<br>
-            In fair Verona, where we lay our scene,<br>
-            From ancient grudge break to new mutiny,<br>
-            Where civil blood makes civil hands unclean.<br>
-            From forth the fatal loins of these two foes<br>
-            A pair of star-cross'd lovers take their life;<br>
-            Whose misadventured piteous overthrows<br>
-            Do with their death bury their parents' strife.<br>
-            The fearful passage of their death-mark'd love,<br>
-            And the continuance of their parents' rage,<br>
-            Which, but their children's end, nought could remove,<br>
-            Is now the two hours' traffic of our stage;<br>
-            The which if you with patient ears attend,<br>
-            What here shall miss, our toil shall strive to mend.
-        </p>
-
-        <h2>SCENE I. Verona. A public place.</h2>
-
-        <p class="stage">
-            Enter SAMPSON and GREGORY, of the house of Capulet,
-            armed with swords and bucklers
-        </p>
-
-        <p class="speaker">SAMPSON</p>
-
-        <p>Gregory, o' my word, we'll not carry coals.</p>
-
-        <p class="speaker">GREGORY</p>
-
-        <p>No, for then we should be colliers.</p>
+    <div class="section-head">
+      <div><h2>Sales</h2><p>Популярні товари з нашої добірки</p></div>
+      <a class="text-btn" href="catalog.html">УСІ ТОВАРИ →</a>
+    </div>
+    <div class="row-wrap">
+      <div class="product-row" id="salesRow"></div>
+      <div class="row-arrows"><button id="rowPrev" aria-label="Попередні товари">‹</button><button id="rowNext" aria-label="Наступні товари">›</button></div>
     </div>
 
+    <div class="section-head">
+      <div><h2>New products</h2><p>Новинки для вашого простору</p></div>
+      <a class="text-btn" href="catalog.html">УСІ ТОВАРИ →</a>
+    </div>
+    <div class="new-grid" id="newGrid"></div>
+  </main>
+</div>
+
+<footer><span>© 2026 FORMA / OBJECTS</span><span>Доставка по Україні · Оплата при отриманні</span></footer>
+
+<div class="overlay" id="overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Кошик">
+    <section class="modal-list">
+      <div class="modal-head"><h2>Кошик</h2><button class="close" id="closeCart" aria-label="Закрити">×</button></div>
+      <div class="cart-scroll" id="cartItems"></div>
+    </section>
+    <aside class="summary-card">
+      <h3>Ваше замовлення</h3>
+      <div class="summary-line"><span>Товари</span><strong id="subtotal">0 ₴</strong></div>
+      <div class="summary-line"><span>Доставка</span><strong id="delivery">0 ₴</strong></div>
+      <div class="summary-line total"><span>Сума замовлення</span><strong id="total">0 ₴</strong></div>
+      <button class="checkout" id="checkout">Оформити замовлення</button>
+    </aside>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const products=[
+{id:1,name:"Навушники Studio",category:"Електроніка",sub:"Аудіо",price:4290,old:5190,tag:"−17%",meta:"Електроніка · Аудіо",rating:4.9,reviews:128,image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80"},
+{id:2,name:"Портативна колонка",category:"Електроніка",sub:"Аудіо",price:3690,tag:"Хіт",meta:"Електроніка · Аудіо",rating:4.8,reviews:94,image:"https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=700&q=80"},
+{id:3,name:"Шкіряний рюкзак",category:"Аксесуари",sub:"Сумки",price:5890,old:6490,tag:"Вибір",meta:"Аксесуари · Сумки",rating:4.7,reviews:62,image:"https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80"},
+{id:4,name:"Настільна лампа",category:"Для дому",sub:"Освітлення",price:2490,tag:"Новинка",meta:"Дім · Освітлення",rating:4.6,reviews:41,image:"https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80"},
+{id:5,name:"Механічна клавіатура",category:"Електроніка",sub:"Робоче місце",price:6490,old:7990,tag:"−19%",meta:"Електроніка · Робоче місце",rating:4.9,reviews:155,image:"https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=700&q=80"},
+{id:6,name:"Сонцезахисні окуляри",category:"Аксесуари",sub:"Окуляри",price:1790,tag:"Базова річ",meta:"Аксесуари · Окуляри",rating:4.5,reviews:38,image:"https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80"},
+{id:7,name:"Термочашка",category:"Для дому",sub:"Посуд",price:890,old:1090,tag:"−18%",meta:"Дім · Посуд",rating:4.8,reviews:73,image:"https://images.unsplash.com/photo-1514228742587-6b1558f04b33?auto=format&fit=crop&w=700&q=80"},
+{id:8,name:"Комп’ютерна миша",category:"Електроніка",sub:"Робоче місце",price:2190,tag:"Новинка",meta:"Електроніка · Робоче місце",rating:4.7,reviews:86,image:"https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=700&q=80"},
+{id:9,name:"Керамічна ваза",category:"Для дому",sub:"Декор",price:1390,tag:"Новинка",meta:"Дім · Декор",rating:4.6,reviews:29,image:"https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=700&q=80"},
+{id:10,name:"Бездротова зарядка",category:"Електроніка",sub:"Аксесуари",price:1590,tag:"Вибір",meta:"Електроніка · Аксесуари",rating:4.5,reviews:57,image:"https://images.unsplash.com/photo-1591290619762-c588cdb7c9d8?auto=format&fit=crop&w=700&q=80"},
+{id:11,name:"Сумка через плече",category:"Аксесуари",sub:"Сумки",price:3290,old:3790,tag:"−13%",meta:"Аксесуари · Сумки",rating:4.8,reviews:48,image:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=700&q=80"},
+{id:12,name:"Настільний органайзер",category:"Для дому",sub:"Робоче місце",price:1190,tag:"Базова річ",meta:"Дім · Робоче місце",rating:4.4,reviews:21,image:"https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80"}
+];
+const money=n=>new Intl.NumberFormat("uk-UA").format(n)+" ₴";
+function imageFallback(img){img.onerror=null;img.src="https://placehold.co/600x500/e8e9e4/526158?text=FORMA"}
+function productCard(p){return `<article class="card"><div class="photo"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="imageFallback(this)"><span class="tag">${p.tag}</span></div><div class="info"><h3 class="name">${p.name}</h3><p class="meta">${p.meta} · ★ ${p.rating} (${p.reviews})</p><div class="bottom"><span><span class="price">${money(p.price)}</span>${p.old?` <span class="old">${money(p.old)}</span>`:""}</span><button class="add" onclick="addToCart(${p.id})">+ До кошика</button></div></div></article>`}
+document.getElementById("salesRow").innerHTML=products.slice(0,8).map(productCard).join("");
+document.getElementById("newGrid").innerHTML=products.slice(8,11).map(p=>`<article class="new-card"><img src="${p.image}" alt="${p.name}" onerror="imageFallback(this)"><div><h3>${p.name}</h3><p>${p.meta}</p><strong>${money(p.price)}</strong></div><button class="add" onclick="addToCart(${p.id})">+</button></article>`).join("");
+
+function readCart(){try{return JSON.parse(localStorage.getItem("formaCart")||"{}")}catch{return{}}}
+let cart=readCart();
+function saveCart(){localStorage.setItem("formaCart",JSON.stringify(cart))}
+function showToast(text){const el=document.getElementById("toast");el.textContent=text;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2000)}
+function addToCart(id){cart[id]=(cart[id]||0)+1;saveCart();renderCart();showToast("Товар додано до кошика")}
+function changeQty(id,n){cart[id]=(cart[id]||0)+n;if(cart[id]<=0)delete cart[id];saveCart();renderCart()}
+function removeItem(id){delete cart[id];saveCart();renderCart()}
+function renderCart(){
+ const entries=Object.entries(cart);
+ document.getElementById("cartCount").textContent=entries.reduce((s,[,n])=>s+n,0);
+ document.getElementById("cartItems").innerHTML=entries.length?entries.map(([id,n])=>{
+  const p=products.find(x=>x.id===Number(id));
+  return `<article class="cart-item"><img src="${p.image}" alt="${p.name}"><div><h3>${p.name}</h3><p>Артикул: F-${String(p.id).padStart(4,"0")} · ${money(p.price)}</p></div><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><strong>${n}</strong><button onclick="changeQty(${p.id},1)">+</button></div><button class="remove" onclick="removeItem(${p.id})" aria-label="Видалити">×</button></article>`
+ }).join(""):`<div class="empty">Кошик порожній.<br>Додайте товари з каталогу.</div>`;
+ const sum=entries.reduce((s,[id,n])=>s+products.find(x=>x.id===Number(id)).price*n,0);
+ const ship=sum&&sum<2000?100:0;
+ document.getElementById("subtotal").textContent=money(sum);
+ document.getElementById("delivery").textContent=ship?money(ship):sum?"Безкоштовно":"0 ₴";
+ document.getElementById("total").textContent=money(sum+ship);
+ document.getElementById("checkout").disabled=!sum;
+}
+renderCart();
+document.getElementById("openCart").onclick=()=>document.getElementById("overlay").classList.add("open");
+document.getElementById("closeCart").onclick=()=>document.getElementById("overlay").classList.remove("open");
+document.getElementById("overlay").onclick=e=>{if(e.target.id==="overlay")e.currentTarget.classList.remove("open")};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("overlay").classList.remove("open")});
+document.getElementById("checkout").onclick=()=>showToast("Демо-режим: оформлення замовлення не налаштоване");
+document.getElementById("rowPrev").onclick=()=>document.getElementById("salesRow").scrollBy({left:-440,behavior:"smooth"});
+document.getElementById("rowNext").onclick=()=>document.getElementById("salesRow").scrollBy({left:440,behavior:"smooth"});
+
+const slides=[
+["Добірка сезону · 2026","Технології.<br>Тихіше й простіше.","Продумані речі, стримані форми й технології, що природно вписуються в життя.","https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1100&q=85"],
+["Звук без зайвого","Чистий звук.<br>Чистий дизайн.","Компактні аудіопристрої для роботи, відпочинку й щоденних справ.","https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=1100&q=85"],
+["Простір для себе","Світло, що<br>задає настрій.","Стримані деталі для робочого місця й домашнього простору.","https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=1100&q=85"]
+];
+let slideIndex=0;
+function moveSlide(step){slideIndex=(slideIndex+step+slides.length)%slides.length;const s=slides[slideIndex];document.getElementById("eyebrow").textContent=s[0];document.getElementById("heroTitle").innerHTML=s[1];document.getElementById("heroDesc").textContent=s[2];document.getElementById("heroImage").src=s[3]}
+document.getElementById("prev").onclick=()=>moveSlide(-1);
+document.getElementById("next").onclick=()=>moveSlide(1);
+document.getElementById("lang").onclick=()=>showToast("Інтерфейс доступний українською");
+</script>
 </body>
 </html>
