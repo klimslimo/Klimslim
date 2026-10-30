@@ -1,0 +1,52 @@
+
+/* Основные настройки страницы */
+body {
+    margin: 0;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: #222;
+}
+
+/* Основной блок */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 25px 22px;
+    background-color: #f3f3f3;
+}
+
+/* Главный заголовок */
+h1 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+/* Заголовки разделов */
+h3 {
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* Обычный текст */
+p {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Формулы */
+.formula {
+    display: table;
+    margin: 10px auto 12px;
+    padding: 3px 10px;
+    background-color: #ffaaaa;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* Выделение важных символов */
+strong {
+    color: #8b2929;
+}
