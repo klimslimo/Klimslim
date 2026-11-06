@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My To Do List</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 28px 16px;
+      background: #f4f4f4;
+      color: #111;
+      font: 14px/1.4 Arial, sans-serif;
+    }
+
+    main {
+      width: min(352px, 100%);
+    }
+
+    h1 {
+      margin: 0 0 11px;
+      font-size: 22px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      min-height: 33px;
+      padding: 0 16px;
+      background: #a8d2df;
+    }
+
+    li:nth-child(even) {
+      background: #b5dce6;
+    }
+
+    li.done {
+      background: #e3e3e3;
+    }
+
+    input {
+      width: 14px;
+      height: 14px;
+      margin: 0 13px 0 10px;
+      accent-color: #444;
+      cursor: pointer;
+    }
+
+    label {
+      flex: 0 1 auto;
+      cursor: pointer;
+    }
+
+    .done label {
+      color: #555;
+      text-decoration: line-through;
+    }
+
+    button {
+      margin-left: 12px;
+      padding: 2px 4px;
+      border: 0;
+      background: transparent;
+      color: #a32626;
+      font-size: 17px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    button:hover,
+    button:focus-visible {
+      color: #650d0d;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>My To Do List</h1>
+
+    <ul id="tasks" aria-label="Tasks">
+      <li>
+        <input id="task-1" type="checkbox">
+        <label for="task-1">Hit the gym</label>
+        <button type="button" aria-label="Remove Hit the gym">×</button>
+      </li>
+      <li class="done">
+        <input id="task-2" type="checkbox" checked>
+        <label for="task-2">Pay bills</label>
+        <button type="button" aria-label="Remove Pay bills">×</button>
+      </li>
+      <li>
+        <input id="task-3" type="checkbox">
+        <label for="task-3">Meet John</label>
+        <button type="button" aria-label="Remove Meet John">×</button>
+      </li>
+      <li>
+        <input id="task-4" type="checkbox">
+        <label for="task-4">Buy eggs</label>
+        <button type="button" aria-label="Remove Buy eggs">×</button>
+      </li>
+      <li class="done">
+        <input id="task-5" type="checkbox" checked>
+        <label for="task-5">Read a book</label>
+        <button type="button" aria-label="Remove Read a book">×</button>
+      </li>
+      <li>
+        <input id="task-6" type="checkbox">
+        <label for="task-6">Organize office</label>
+        <button type="button" aria-label="Remove Organize office">×</button>
+      </li>
+      <li>
+        <input id="task-7" type="checkbox">
+        <label for="task-7">Eat dinner</label>
+        <button type="button" aria-label="Remove Eat dinner">×</button>
+      </li>
+      <li>
+        <input id="task-8" type="checkbox">
+        <label for="task-8">Buy apples</label>
+        <button type="button" aria-label="Remove Buy apples">×</button>
+      </li>
+      <li>
+        <input id="task-9" type="checkbox">
+        <label for="task-9">Meet George</label>
+        <button type="button" aria-label="Remove Meet George">×</button>
+      </li>
+      <li>
+        <input id="task-10" type="checkbox">
+        <label for="task-10">Feed the cat</label>
+        <button type="button" aria-label="Remove Feed the cat">×</button>
+      </li>
+      <li class="done">
+        <input id="task-11" type="checkbox" checked>
+        <label for="task-11">Write a letter</label>
+        <button type="button" aria-label="Remove Write a letter">×</button>
+      </li>
+      <li>
+        <input id="task-12" type="checkbox">
+        <label for="task-12">Run 1 km</label>
+        <button type="button" aria-label="Remove Run 1 km">×</button>
+      </li>
+    </ul>
+  </main>
+
+  <script>
+    document.querySelectorAll("#tasks li").forEach((item) => {
+      const checkbox = item.querySelector("input");
+
+      checkbox.addEventListener("change", () => {
+        item.classList.toggle("done", checkbox.checked);
+      });
+
+      item.querySelector("button").addEventListener("click", () => {
+        item.remove();
+      });
+    });
+  </script>
+</body>
+</html>

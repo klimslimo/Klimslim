@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fruit List</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 32px 18px;
+      background: #f4f4f4;
+      font: 16px/1.4 Arial, sans-serif;
+    }
+
+    .fruit-list {
+      width: min(438px, 100%);
+      margin: 0;
+      padding: 18px;
+      list-style: none;
+      background: #ee9aae;
+    }
+
+    .fruit-list li {
+      min-height: 29px;
+      margin: 0 0 9px;
+      padding: 0;
+      color: #fff;
+      background: #c46078;
+    }
+
+    .fruit-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .number {
+      display: inline-block;
+      width: 28px;
+      padding: 5px 0;
+      text-align: center;
+      background: #b64e69;
+    }
+
+    .fruit {
+      display: inline-block;
+      padding: 5px 14px;
+      background: #98364f;
+    }
+  </style>
+</head>
+<body>
+  <ol class="fruit-list" aria-label="Fruit">
+    <li><span class="number">1.</span><span class="fruit">Apple</span></li>
+    <li><span class="number">2.</span><span class="fruit">Orange</span></li>
+    <li><span class="number">3.</span><span class="fruit">Pineapple</span></li>
+    <li><span class="number">4.</span><span class="fruit">Pear</span></li>
+    <li><span class="number">5.</span><span class="fruit">Cherry</span></li>
+  </ol>
+</body>
+</html>
