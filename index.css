@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 650px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+header,
+footer {
+  height: 45px;
+  background: #00dddd;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  height: 345px;
+}
+
+.blocks {
+  width: 70%;
+  background: green;
+}
+
+aside {
+  flex: 1;
+  background: #5d9e9e;
+}
+
+.top-row,
+.bottom-row {
+  display: flex;
+  height: 20%;
+}
+
+.middle-row {
+  display: flex;
+  height: 60%;
+}
+
+.square {
+  flex: 1;
+  border: 2px solid yellow;
+}
+
+footer {
+  height: 45px;
+}
