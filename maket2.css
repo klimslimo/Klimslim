@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  width: 94%;
+  margin: 55px auto 0;
+  background: #3c4351;
+  padding: 0 12px;
+}
+
+.header {
+  height: 46px;
+  background: #29a9dc;
+  margin: 0 -12px 12px;
+}
+
+.content {
+  padding-bottom: 12px;
+}
+
+/* Четыре блока сверху */
+.top-row {
+  margin-bottom: 14px;
+}
+
+.top-row::after,
+.middle-row::after,
+.bottom-row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.top-row .box {
+  float: left;
+  width: calc((100% - 42px) / 4);
+  height: 88px;
+  margin-right: 14px;
+}
+
+.top-row .box:last-child {
+  margin-right: 0;
+}
+
+/* Три колонки посередине */
+.middle-row {
+  margin-bottom: 14px;
+}
+
+.middle-row > .box,
+.right-column {
+  float: left;
+  height: 230px;
+  margin-right: 14px;
+}
+
+.middle-row .large {
+  width: calc(40% - 9px);
+}
+
+.middle-row .tall {
+  width: calc(24% - 9px);
+}
+
+.right-column {
+  width: calc(36% - 10px);
+  margin-right: 0;
+}
+
+.right-column .box {
+  height: 108px;
+  margin-bottom: 14px;
+}
+
+.right-column .box:last-child {
+  margin-bottom: 0;
+}
+
+/* Два блока снизу */
+.bottom-row .box {
+  float: left;
+  width: calc((100% - 14px) / 2);
+  height: 100px;
+  margin-right: 14px;
+  background: #29a9dc;
+}
+
+.bottom-row .box:last-child {
+  margin-right: 0;
+}
+
+/* Общий вид блоков */
+.box {
+  background: #2d303c;
+}
